@@ -1,13 +1,14 @@
 function solve() {
     let summary = {};
     for (const currEl of arguments) {
-        if (!summary[typeof currEl]) {
-            summary[typeof currEl] = 1;
+        let currType = typeof currEl;
+        if (!summary[currType]) {
+            summary[currType] = 1;
         } else {
-            summary[typeof currEl]++;
+            summary[currType]++;
         }
  
-        console.log(`${typeof currEl}: ${currEl}`);
+        console.log(`${currType}: ${currEl}`);
     }   
     summary = Object.entries(summary).sort((a, b) => b[1] - a[1]);
     summary.forEach(el => {
